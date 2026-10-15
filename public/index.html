@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portugal AutoSwitch MVP</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:900px;margin:24px auto;padding:0 16px;background:#0f1115;color:#e8eaf0}
+h1{font-size:24px}.card{background:#1a1e27;border:1px solid #2a3040;border-radius:12px;padding:16px;margin:12px 0}
+label{display:block;margin:8px 0 4px;font-size:13px;color:#aab}input,select{width:100%;padding:8px;border-radius:8px;border:1px solid #333;background:#111;color:#eee}
+button{background:#4f7cff;border:0;color:#fff;padding:10px 16px;border-radius:8px;cursor:pointer;margin-top:10px}
+button.ghost{background:#2a3040}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid #2a3040;text-align:left}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;background:#244;font-size:12px}.ok{background:#1c5c3a}.warn{background:#6b4d16}
+small{color:#889}a{color:#8ab4ff}
+</style>
+</head>
+<body>
+<h1>⚡ Portugal AutoSwitch — MVP</h1>
+<p><small>Manie-style prototype. Free switching (ERSE), 48h cancel window. Offers seeded from <a href="https://simuladorprecos.erse.pt/">ERSE simulator</a>.</small></p>
+
+<div class="card">
+<h3>1. Register contract + mandate</h3>
+<div class="grid">
+<div><label>Name</label><input id="f-name" value="Maria Silva"></div>
+<div><label>Email</label><input id="f-email" value="maria@example.pt"></div>
+<div><label>CPE (PTxxxxxxxxxxxx)</label><input id="f-cpe" value="PT0002001234567890AB"></div>
+<div><label>Current supplier</label><input id="f-supplier" value="EDP Comercial"></div>
+<div><label>Current offer</label><select id="f-offer"></select></div>
+<div><label>Power kVA</label><select id="f-power"><option>3.45</option><option selected>4.6</option><option>6.9</option></select></div>
+<div><label>Tariff</label><select id="f-tariff"><option value="simples">Simples</option><option value="bi-horario">Bi-horário</option></select></div>
+<div><label>Annual kWh</label><input id="f-kwh" type="number" value="3500"></div>
+<div><label>Contract end (fidelity)</label><input id="f-end" type="date" value="2026-10-30"></div>
+<div><label><input type="checkbox" id="f-consent" checked style="width:auto"> I mandate AutoSwitch to contract on my behalf (RGPD)</label></div>
+</div>
+<button onclick="save()">Save contract</button> <span id="save-msg"></span>
+</div>
+
+<div class="card">
+<h3>2. Contracts</h3>
+<div id="contracts"></div>
+<button class="ghost" onclick="runCron()">▶ Run AutoSwitch scan now (due ≤30d + saving ≥20€)</button>
+<span id="cron-msg"></span>
+</div>
+
+<div class="card">
+<h3>3. Comparison</h3>
+<div id="compare"></div>
+</div>
+
+<div class="card">
+<h3>4. Switch proposals (48h cancel)</h3>
+<div id="switches"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

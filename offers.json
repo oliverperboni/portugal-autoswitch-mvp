@@ -1,0 +1,87 @@
+{
+  "updated": "2026-10-15",
+  "source": "MVP seed - manually maintained from ERSE simuladorprecos.erse.pt. Replace with scraper/cron in production.",
+  "currency": "EUR",
+  "iva_rate": 0.23,
+  "note": "Prices ex-VAT. Potencia price is EUR/day for the listed contracted powers.",
+  "offers": [
+    {
+      "id": "iberdrola-casa",
+      "supplier": "Iberdrola",
+      "name": "Casa Simples",
+      "tariff": "simples",
+      "price_kwh": 0.1498,
+      "power_price_day": {"3.45": 0.1783, "4.6": 0.2321, "6.9": 0.3367},
+      "discount_note": "5% online discount included",
+      "loyalty_months": 12,
+      "renewable": true
+    },
+    {
+      "id": "endesa-luz",
+      "supplier": "Endesa",
+      "name": "Luz Simples",
+      "tariff": "simples",
+      "price_kwh": 0.1529,
+      "power_price_day": {"3.45": 0.1812, "4.6": 0.2360, "6.9": 0.3420},
+      "discount_note": "",
+      "loyalty_months": 12,
+      "renewable": false
+    },
+    {
+      "id": "plenitude-fixe",
+      "supplier": "Plenitude",
+      "name": "Preço Fixe Luz",
+      "tariff": "simples",
+      "price_kwh": 0.1555,
+      "power_price_day": {"3.45": 0.1795, "4.6": 0.2335, "6.9": 0.3388},
+      "discount_note": "",
+      "loyalty_months": 12,
+      "renewable": true
+    },
+    {
+      "id": "goldenergy-mono",
+      "supplier": "Goldenergy",
+      "name": "Monoelétrico",
+      "tariff": "simples",
+      "price_kwh": 0.1589,
+      "power_price_day": {"3.45": 0.1750, "4.6": 0.2280, "6.9": 0.3310},
+      "discount_note": "",
+      "loyalty_months": 0,
+      "renewable": true
+    },
+    {
+      "id": "edp-zero",
+      "supplier": "EDP Comercial",
+      "name": "Zero Simples",
+      "tariff": "simples",
+      "price_kwh": 0.1649,
+      "power_price_day": {"3.45": 0.1850, "4.6": 0.2410, "6.9": 0.3500},
+      "discount_note": "Example incumbent - usually more expensive",
+      "loyalty_months": 12,
+      "renewable": false
+    },
+    {
+      "id": "repsol-poupanca",
+      "supplier": "Repsol",
+      "name": "Poupança Simples",
+      "tariff": "simples",
+      "price_kwh": 0.1599,
+      "power_price_day": {"3.45": 0.1820, "4.6": 0.2370, "6.9": 0.3435},
+      "discount_note": "",
+      "loyalty_months": 12,
+      "renewable": false
+    },
+    {
+      "id": "iberdrola-bi",
+      "supplier": "Iberdrola",
+      "name": "Casa Bi-Horário",
+      "tariff": "bi-horario",
+      "price_kwh_day": 0.1850,
+      "price_kwh_night": 0.0985,
+      "power_price_day": {"3.45": 0.1783, "4.6": 0.2321, "6.9": 0.3367},
+      "discount_note": "Assumes 60% day / 40% night if split not given",
+      "loyalty_months": 12,
+      "renewable": true
+    }
+  ]
+}
